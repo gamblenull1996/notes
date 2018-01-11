@@ -1,0 +1,51 @@
+%x 输出十六进制数
+%p 指针地址
+%n 到目前为止所写得字符数
+
+微软出于安全考虑默认禁用了%n
+_set_printf_count_output(1);
+
+```
+#include <stdio.h>
+
+int main()
+{
+	int c = 0;
+    _set_printf_count_output(1);
+    printf("the use of %n", &c);
+    printf("%d", c);
+    return 0;
+}
+```
+"$"操作符
+可以输出指定位置的参数
+
+objdump只用于反编译简单的，未被篡改的二进制文件
+
+objdumo -D elf
+查看elf文件中所有节的数据或代码
+
+objdump -d elf
+只查看elf文件中的程序代码
+
+objdump -tT elf
+查看所有符号
+
+readelf用于反编译之前收集目标文件相关的信息
+readelf -S object
+查询节头表
+
+readelf -l object
+查询符号表
+
+`/proc/<pid>/maps`
+该文件保存了一个进程镜像的布局，展现的内容包括可执行文件，共享库，栈，堆和VDSO等
+
+
+
+
+
+
+
+
+
